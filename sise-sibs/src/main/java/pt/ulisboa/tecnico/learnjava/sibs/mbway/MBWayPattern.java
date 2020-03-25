@@ -21,7 +21,7 @@ public class MBWayPattern {
 
 	public static void main(String[] args) throws MBWayException, SibsException, AccountException, OperationException,
 			BankException, PersonException, ClientException {
-		// change
+
 		MBWay model = retriveMBWayFromDatabase();
 		MBWayView view = new MBWayView();
 		MBWayController ctrl = new MBWayController(model, view);
