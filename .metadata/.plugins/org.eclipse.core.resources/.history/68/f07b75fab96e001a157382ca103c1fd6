@@ -1,0 +1,95 @@
+package pt.ulisboa.tecnico.learnjava.sibs.sibs;
+
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import org.junit.After;
+import org.junit.Test;
+
+import pt.ulisboa.tecnico.learnjava.bank.domain.Bank;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.bank.services.Services;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+import pt.ulisboa.tecnico.learnjava.sibs.exceptions.OperationException;
+import pt.ulisboa.tecnico.learnjava.sibs.exceptions.SibsException;
+
+public class TransferMethodMockitoTest {
+
+	@Test
+	public void successStandardTransfer() throws SibsException, AccountException, OperationException {
+		Services mockService = mock(Services.class);
+		Sibs sibsMock = new Sibs(100, mockService);
+		String sourceIban = "AAA";
+		String targetIban = "BBB";
+		when(mockService.accountExistance(sourceIban)).thenReturn(true);
+		when(mockService.accountExistance(targetIban)).thenReturn(true);
+		when(mockService.sameBanks(sourceIban, targetIban)).thenReturn(true);
+		sibsMock.transfer(sourceIban, targetIban, 100);
+		sibsMock.processOperations();
+		sibsMock.processOperations();
+		verify(mockService).withdraw(sourceIban, 100);
+		verify(mockService).deposit(targetIban, 100);
+
+	}
+
+	@Test
+	public void successComissionTransfer() throws SibsException, AccountException, OperationException {
+		Services mockService = mock(Services.class);
+		Sibs sibsMock = new Sibs(100, mockService);
+		String sourceIban = "AAA";
+		String targetIban = "BBB";
+		when(mockService.accountExistance(sourceIban)).thenReturn(true);
+		when(mockService.accountExistance(targetIban)).thenReturn(true);
+		when(mockService.sameBanks(sourceIban, targetIban)).thenReturn(false);
+		sibsMock.transfer(sourceIban, targetIban, 100);
+		verify(mockService, times(1)).withdraw(sourceIban, 106);
+		verify(mockService, times(1)).deposit(targetIban, 100);
+	}
+
+	@Test
+	public void failedTransfer() throws SibsException, AccountException, OperationException {
+		Services mockService = mock(Services.class);
+		Sibs sibsMock = new Sibs(100, mockService);
+		String sourceIban = "AAA";
+		String targetIban = "BBB";
+		when(mockService.accountExistance(sourceIban)).thenReturn(true);
+		when(mockService.accountExistance(targetIban)).thenReturn(false);
+		try {
+			sibsMock.transfer(sourceIban, targetIban, 100);
+			fail();
+		} catch (Exception e) {
+			verify(mockService, never()).withdraw(sourceIban, 100);
+			verify(mockService, never()).deposit(targetIban, 100);
+		}
+	}
+
+	@Test
+	public void failedTransferInactiveTargetAccount() throws SibsException, AccountException, OperationException {
+		Services mockService = mock(Services.class);
+		Sibs sibsMock = new Sibs(100, mockService);
+		String sourceIban = "AAA";
+		String targetIban = "BBB";
+		when(mockService.accountExistance(sourceIban)).thenReturn(true);
+		when(mockService.accountExistance(targetIban)).thenReturn(true);
+		when(mockService.accountStatus(sourceIban)).thenReturn(true);
+		when(mockService.accountStatus(targetIban)).thenReturn(false);
+		try {
+			sibsMock.transfer(sourceIban, targetIban, 100);
+			fail();
+		} catch (Exception e) {
+			verify(mockService, never()).withdraw(sourceIban, 100);
+			verify(mockService, never()).deposit(targetIban, 100);
+		}
+	}
+
+	@After
+	public void tearDown() {
+		Bank.clearBanks();
+	}
+
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ConstructorMethodTest (1)" project="sise-bank" tests="4" started="4" failures="0" errors="1" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.004">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.001"/>
+    <testcase name="no9DigitsPhoneNumber" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.002">
+      <error>java.lang.Exception: Unexpected exception, expected&lt;pt.ulisboa.tecnico.learnjava.bank.exceptions.ClientException&gt; but was&lt;pt.ulisboa.tecnico.learnjava.bank.exceptions.PersonException&gt;&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+Caused by: pt.ulisboa.tecnico.learnjava.bank.exceptions.PersonException&#13;
+	at pt.ulisboa.tecnico.learnjava.bank/pt.ulisboa.tecnico.learnjava.bank.domain.Person.checkParameters(Person.java:25)&#13;
+	at pt.ulisboa.tecnico.learnjava.bank/pt.ulisboa.tecnico.learnjava.bank.domain.Person.&lt;init&gt;(Person.java:15)&#13;
+	at pt.ulisboa.tecnico.learnjava.bank/pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest.no9DigitsPhoneNumber(ConstructorMethodTest.java:61)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)&#13;
+	... 17 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="negativeAge" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.0"/>
+    <testcase name="no9DigitsNif" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.0"/>
+  </testsuite>
+</testrun>

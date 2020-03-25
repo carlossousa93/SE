@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CreateAccountMethodTest" project="sise-bank" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.bank.CreateAccountMethodTest" time="0.01">
+    <testcase name="clientHasAccountOfAnotherBank" classname="pt.ulisboa.tecnico.learnjava.bank.bank.CreateAccountMethodTest" time="0.008"/>
+    <testcase name="failYoungAccountMoreThan17" classname="pt.ulisboa.tecnico.learnjava.bank.bank.CreateAccountMethodTest" time="0.0"/>
+    <testcase name="successCheckingAccount" classname="pt.ulisboa.tecnico.learnjava.bank.bank.CreateAccountMethodTest" time="0.001"/>
+    <testcase name="successSalaryAccount" classname="pt.ulisboa.tecnico.learnjava.bank.bank.CreateAccountMethodTest" time="0.0"/>
+    <testcase name="successYoungAccount" classname="pt.ulisboa.tecnico.learnjava.bank.bank.CreateAccountMethodTest" time="0.0"/>
+    <testcase name="successSavingsAccount" classname="pt.ulisboa.tecnico.learnjava.bank.bank.CreateAccountMethodTest" time="0.001"/>
+  </testsuite>
+</testrun>

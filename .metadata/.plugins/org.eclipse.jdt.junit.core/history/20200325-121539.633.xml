@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java (3)" project="sise-sibs" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.022">
+    <testcase name="processInterfaceWitdrawnCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.015"/>
+    <testcase name="processInterfaceRegistredCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.001"/>
+    <testcase name="processInterfaceDepositedCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.001"/>
+    <testcase name="processInterfaceCompletedCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.002"/>
+    <testcase name="processInterfaceStatesSameBank" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0"/>
+    <testcase name="processInterfaceWitdrawnCancelled2Times" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.001"/>
+    <testcase name="processErrorState" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0"/>
+    <testcase name="processInterfaceStatesDifferentBanks" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.002"/>
+  </testsuite>
+</testrun>

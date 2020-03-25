@@ -1,0 +1,27 @@
+package State;
+
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+
+public class Withdrawn implements State {
+	
+	@Override
+	public void process(TransferOperation wrapper) throws AccountException {
+		String sourceIban = wrapper.getSourceIban();
+		String targetIban = wrapper.getTargetIban();
+		
+		if(wrapper.getServices().sameBanks(sourceIban, targetIban)) {
+			wrapper.setState(new Completed());
+		}else{
+			wrapper.setState(new Deposited());
+		}
+    }
+	
+	@Override
+	public void cancel(TransferOperation wrapper) throws AccountException {
+		String sourceIban = wrapper.getSourceIban();
+		int amount = wrapper.getValue();
+		wrapper.getServices().deposit(sourceIban, amount);
+		wrapper.setState(new Cancelled());
+	}
+}

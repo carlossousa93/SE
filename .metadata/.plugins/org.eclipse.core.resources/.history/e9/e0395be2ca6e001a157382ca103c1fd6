@@ -1,0 +1,51 @@
+package pt.ulisboa.tecnico.learnjava.sibs.sibs;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+
+import org.junit.After;
+import org.junit.Test;
+
+import pt.ulisboa.tecnico.learnjava.bank.domain.Bank;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.bank.services.Services;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs;
+
+public class RetryMockitoTest {
+	
+	@Test
+	public void retry3TimesAndGoToErrorState()   {
+		Services servicesMock = mock(Services.class);
+        Sibs sibsMock = new Sibs(3, servicesMock);
+		String sourceIban = "AAA";
+		String targetIban = "BBB";
+        
+        when(servicesMock.accountExistance(sourceIban)).thenReturn(true);
+        when(servicesMock.accountExistance(targetIban)).thenReturn(true);
+        
+        when(servicesMock.sameBanks(sourceIban, targetIban)).thenReturn(true);
+
+
+
+        doThrow(AccountException.class).when(servicesMock).withdraw(sourceIban, 100);
+        
+        sibsMock.transfer(sourceIban, targetIban, 100);
+        
+        sibsMock.processOperations();
+        sibsMock.processOperations();
+        sibsMock.processOperations();
+        
+        verify(servicesMock, times(3)).withdraw(sourceIban, 100);
+        verify(servicesMock, never()).deposit(targetIban, 100);
+		
+	}
+	
+	@After
+	public void tearDown() {
+		Bank.clearBanks();
+	}
+
+}

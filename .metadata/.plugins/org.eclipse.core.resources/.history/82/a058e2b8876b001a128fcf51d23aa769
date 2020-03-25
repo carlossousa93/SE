@@ -1,0 +1,12 @@
+package pt.ulisboa.tecnico.learnjava.bank.exceptions;
+
+public class PersonException extends Exception {
+	
+	private final String phoneNumber;
+	
+	public PersonException(String phoneNumber) {
+		
+		this.phoneNumber = phoneNumber;
+	}
+
+}

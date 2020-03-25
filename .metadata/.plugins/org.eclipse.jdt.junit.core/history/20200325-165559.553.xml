@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java (3)" project="sise-sibs" tests="4" started="4" failures="1" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.482">
+    <testcase name="successComissionTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.475">
+      <failure>Wanted but not invoked:
+services.withdraw("AAA", 106);
+-&gt; at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest.successComissionTransfer(TransferMethodMockitoTest.java:49)
+
+However, there were exactly 4 interactions with this mock:
+services.accountExistance("AAA");
+-&gt; at pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs.validateAccounts(Sibs.java:33)
+
+services.accountExistance("BBB");
+-&gt; at pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs.validateAccounts(Sibs.java:33)
+
+services.accountStatus("AAA");
+-&gt; at pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs.validateAccounts(Sibs.java:34)
+
+services.accountStatus("BBB");
+-&gt; at pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs.validateAccounts(Sibs.java:34)
+
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest.successComissionTransfer(TransferMethodMockitoTest.java:49)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="failedTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.002"/>
+    <testcase name="failedTransferInactiveTargetAccount" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.0"/>
+    <testcase name="successStandardTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.005"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ConstructorMethodTest (1)" project="sise-bank" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.003">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.002"/>
+    <testcase name="no9DigitsPhoneNumber" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.0"/>
+    <testcase name="negativeAge" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.0"/>
+    <testcase name="no9DigitsNif" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.0"/>
+  </testsuite>
+</testrun>

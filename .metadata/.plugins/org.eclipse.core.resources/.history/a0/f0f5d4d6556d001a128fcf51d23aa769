@@ -1,0 +1,101 @@
+package pt.ulisboa.tecnico.learnjava.sibs.domain;
+
+import State.Registered;
+import State.State;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.bank.services.Services;
+import pt.ulisboa.tecnico.learnjava.sibs.exceptions.OperationException;
+
+public class TransferOperation extends Operation {
+	private final String sourceIban;
+	private final String targetIban;
+
+	// nova variavel para registrar o state
+	//private String state;
+
+	private State currentState;
+	Services services;
+
+	public TransferOperation(String sourceIban, String targetIban, int value) throws OperationException {
+		super(Operation.OPERATION_TRANSFER, value);
+
+		if (invalidString(sourceIban) || invalidString(targetIban)) {
+			throw new OperationException();
+		}
+//		this.state = "Registered"; // acrescentado o state dentro do construtor
+		this.currentState = new Registered();
+		this.sourceIban = sourceIban;
+		this.targetIban = targetIban;
+		this.services = new Services();
+	}
+
+	public Services getServices() {
+		return services;
+	}
+
+	private boolean invalidString(String name) {
+		return name == null || name.length() == 0;
+	}
+
+	@Override
+	public int commission() {
+		return (int) Math.round(super.commission() + getValue() * 0.05);
+	}
+
+	public String getSourceIban() {
+		return this.sourceIban;
+	}
+
+	public String getTargetIban() {
+		return this.targetIban;
+	}
+	
+//	public void setStateString(String newstate) {
+//		this.state = newstate;
+//	}
+
+	public State getState() {
+		return this.currentState;
+	}
+
+	public void setState(State s) {
+		this.currentState = s;
+	}
+	
+	public void process() throws OperationException, AccountException {
+		currentState.process(this);
+	}
+	
+	public void cancel() throws OperationException, AccountException {
+		currentState.cancel(this);
+	}
+
+	// Acrescentado o metodo process
+//	public void process() throws AccountException, OperationException {
+//		if (this.state.equals("Cancelled")) {
+//			throw new OperationException();
+//		}
+//
+//		if (this.state.equals("Registered")) {
+//			setState("Withdrawn");
+//		} else if (this.state.equals("Withdrawn")) {
+//
+//			if (this.services.sameBanks(this.sourceIban, this.targetIban)) {
+//				setState("Completed");
+//			} else {
+//				setState("Deposited");
+//			}
+//
+//		} else {
+//			setState("Completed");
+//		}
+//	}
+//
+//	public void cancel() throws OperationException {
+//		if (this.state.equals("Completed")) {
+//			throw new OperationException();
+//		} else {
+//			setState("Cancelled");
+//		}
+//	}
+}

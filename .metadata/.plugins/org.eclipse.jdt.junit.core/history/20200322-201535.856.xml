@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GetOperationMethodTest" project="sise-sibs" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.005">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.004"/>
+    <testcase name="positionAboveLength" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.001"/>
+    <testcase name="negativePosition" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.0"/>
+  </testsuite>
+</testrun>

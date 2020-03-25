@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="pt.ulisboa.tecnico.learnjava.sibs.sibs (1)" project="sise-sibs" tests="36" started="36" failures="0" errors="7" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetNumberOfOperationsMethodTest" time="0.0">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetNumberOfOperationsMethodTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.001">
+    <testcase name="processInterfaceWitdrawnCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method cancel(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest.processInterfaceWitdrawnCancelled(TransferOperationStateInterfaceTest.java:133)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="processInterfaceRegistredCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method cancel(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest.processInterfaceRegistredCancelled(TransferOperationStateInterfaceTest.java:111)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="processInterfaceDepositedCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.001">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method cancel(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest.processInterfaceDepositedCancelled(TransferOperationStateInterfaceTest.java:183)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="processInterfaceCompletedCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method cancel(Services) in the type TransferOperation is not applicable for the arguments ()
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest.processInterfaceCompletedCancelled(TransferOperationStateInterfaceTest.java:212)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="processInterfaceStatesSameBank" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest.processInterfaceStatesSameBank(TransferOperationStateInterfaceTest.java:95)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="processInterfaceWitdrawnCancelled2Times" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method cancel(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method cancel(Services) in the type TransferOperation is not applicable for the arguments ()
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest.processInterfaceWitdrawnCancelled2Times(TransferOperationStateInterfaceTest.java:158)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="processInterfaceStatesDifferentBanks" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest" time="0.0">
+      <error>java.lang.Error: Unresolved compilation problems: 
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+	The method process(Services) in the type TransferOperation is not applicable for the arguments ()
+&#13;
+	at pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferOperationStateInterfaceTest.processInterfaceStatesDifferentBanks(TransferOperationStateInterfaceTest.java:64)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.RemoveOperationMethodTest" time="0.0">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.RemoveOperationMethodTest" time="0.0"/>
+    <testcase name="positionAboveLength" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.RemoveOperationMethodTest" time="0.0"/>
+    <testcase name="negativePosition" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.RemoveOperationMethodTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetTotalValueOfOperationsMethodTest" time="0.0">
+    <testcase name="successTwo" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetTotalValueOfOperationsMethodTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.351">
+    <testcase name="successComissionTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.348"/>
+    <testcase name="failedTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.001"/>
+    <testcase name="failedTransferInactiveTargetAccount" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.001"/>
+    <testcase name="successStandardTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodMockitoTest" time="0.001"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.0">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.0"/>
+    <testcase name="positionAboveLength" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.0"/>
+    <testcase name="negativePosition" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetOperationMethodTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.AddOperationMethodTest" time="0.001">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.AddOperationMethodTest" time="0.0"/>
+    <testcase name="successWithDelete" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.AddOperationMethodTest" time="0.001"/>
+    <testcase name="failIsFull" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.AddOperationMethodTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.005">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.002"/>
+    <testcase name="sucessCancelFailsCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.001"/>
+    <testcase name="sucessDepositedCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.0"/>
+    <testcase name="sucessCompletedFailsCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.001"/>
+    <testcase name="sucessWithdrawnCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.0"/>
+    <testcase name="sucessFailsNullCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.0"/>
+    <testcase name="sucessRegisteredCancelled" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.CancelOperationMethodTest" time="0.001"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodStateTest" time="0.001">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodStateTest" time="0.001"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetTotalValueOfOperationsForTypeMethodTest" time="0.0">
+    <testcase name="successTwo" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.GetTotalValueOfOperationsForTypeMethodTest" time="0.0"/>
+  </testsuite>
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.ProcessOperationsMethodTest" time="0.002">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.ProcessOperationsMethodTest" time="0.0"/>
+    <testcase name="successDiffStatesSameBank" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.ProcessOperationsMethodTest" time="0.0"/>
+    <testcase name="sucessDiffStatesDiffBank" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.ProcessOperationsMethodTest" time="0.001"/>
+    <testcase name="successDiffStatesSameBankWCancel" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.ProcessOperationsMethodTest" time="0.0"/>
+    <testcase name="processErrorState" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.ProcessOperationsMethodTest" time="0.001"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java (2)" project="sise-sibs" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.processOperationsMethodTest" time="0.011">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.processOperationsMethodTest" time="0.007"/>
+    <testcase name="successDiffStatesSameBank" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.processOperationsMethodTest" time="0.001"/>
+    <testcase name="sucessDiffStates" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.processOperationsMethodTest" time="0.002"/>
+    <testcase name="successDiffStatesSameBankWCancel" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.processOperationsMethodTest" time="0.001"/>
+  </testsuite>
+</testrun>

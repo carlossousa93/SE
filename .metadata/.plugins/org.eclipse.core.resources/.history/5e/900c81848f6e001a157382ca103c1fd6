@@ -1,0 +1,34 @@
+package State;
+
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+import pt.ulisboa.tecnico.learnjava.sibs.exceptions.OperationException;
+
+public class Retry implements State{
+	
+	private int retries = 3;
+    private State previewState = null;
+   
+    @Override
+    public void process(TransferOperation operation) throws OperationException, AccountException {
+       
+        if (!(operation.getState() instanceof Retry)) {
+            previewState = operation.getState();
+            operation.setState(this);
+        } else {
+            if (retries>0) {
+            operation.setState(new Error());
+            } else {
+                previewState.process(operation);
+            }
+        }
+        this.retries -= 1;
+    }
+
+	@Override
+	public void cancel(TransferOperation wrapper) throws AccountException {
+		wrapper.getServices().withdraw(wrapper.getTargetIban(), wrapper.getValue());
+		wrapper.getServices().deposit(wrapper.getSourceIban(), wrapper.getValue());
+		wrapper.setState(new Cancelled());	
+	}
+}

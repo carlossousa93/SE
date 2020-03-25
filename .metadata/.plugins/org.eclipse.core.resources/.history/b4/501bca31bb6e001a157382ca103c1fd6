@@ -1,0 +1,237 @@
+package pt.ulisboa.tecnico.learnjava.sibs.sibs;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import State.Cancelled;
+import State.Completed;
+import State.Deposited;
+import State.Registered;
+import State.Withdrawn;
+import pt.ulisboa.tecnico.learnjava.bank.domain.Bank;
+import pt.ulisboa.tecnico.learnjava.bank.domain.Client;
+import pt.ulisboa.tecnico.learnjava.bank.domain.Person;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.BankException;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.ClientException;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.PersonException;
+import pt.ulisboa.tecnico.learnjava.bank.services.Services;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.Operation;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+import pt.ulisboa.tecnico.learnjava.sibs.exceptions.OperationException;
+
+public class TransferOperationStateInterfaceTest {
+	
+	private static final String ADDRESS = "Ave.";
+	private static final String PHONE_NUMBER = "987654321";
+	private static final String NIF = "123456789";
+	private static final String LAST_NAME = "Silva";
+	private static final String FIRST_NAME = "António";
+
+	private Bank sourceBank;
+	private Bank targetBank;
+	private Person person;
+	private Client sourceClient;
+	private Client targetClient;
+	Services services;
+
+	@Before
+	public void setUp() throws BankException, ClientException, AccountException, PersonException {
+		this.services = new Services();
+		this.sourceBank = new Bank("CGD");
+		this.targetBank = new Bank("BPI");
+		this.person = new Person( FIRST_NAME, LAST_NAME, ADDRESS, PHONE_NUMBER);
+		this.sourceClient = new Client(this.sourceBank, this.person, NIF, 33);
+		this.targetClient = new Client(this.targetBank, this.person, NIF, 22);
+	}
+	
+	@Test
+	public void processInterfaceStatesDifferentBanks()
+			throws BankException, ClientException, OperationException, AccountException {
+		
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.targetBank.createAccount(Bank.AccountType.CHECKING, this.targetClient, 1000, 0);
+	 
+		TransferOperation operation = new TransferOperation(sourceIban, targetIban, 100);
+				
+		assertEquals(Operation.OPERATION_TRANSFER, operation.getType());
+		assertTrue(operation.getState() instanceof Registered);
+		operation.process(this.services);
+		assertEquals(900, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Withdrawn);
+		operation.process(this.services);
+		assertEquals(1100, this.services.getAccountByIban(targetIban).getBalance());
+		assertTrue(operation.getState() instanceof Deposited);
+		operation.process(this.services);
+		int comission = operation.commission();
+		assertEquals(900-comission, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Completed);
+		try {
+			operation.process(this.services);
+			fail();
+		} catch (OperationException e) {
+			System.out.println(e.getType());
+			assertEquals(900-comission, this.services.getAccountByIban(sourceIban).getBalance());
+			assertEquals(1100, this.services.getAccountByIban(targetIban).getBalance());
+			assertTrue(operation.getState() instanceof Completed);
+		}
+	}
+	
+	@Test
+	public void processInterfaceStatesSameBank() throws ClientException, BankException, AccountException, OperationException, PersonException {
+		Person person = new Person("Cristiano", "Ronaldo","Avenida de Turim", "962078576");
+		Client targetClientSameBank = new Client(this.sourceBank, person, "123456711", 35);
+
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, targetClientSameBank, 1000, 0);
+
+		TransferOperation operation = new TransferOperation(sourceIban, targetIban, 100);
+
+		operation.process(this.services);
+		assertEquals(900, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Withdrawn);
+		operation.process(this.services);
+		assertEquals(1100, this.services.getAccountByIban(targetIban).getBalance());
+		assertTrue(operation.getState() instanceof Completed);
+	}
+	
+	@Test
+	public void processInterfaceRegistredCancelled()
+			throws ClientException, BankException, AccountException, OperationException {
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.targetBank.createAccount(Bank.AccountType.CHECKING, this.targetClient, 1000, 0);
+
+		TransferOperation operation = new TransferOperation(sourceIban, targetIban, 100);
+		assertTrue(operation.getState() instanceof Registered);
+		operation.cancel(this.services);
+		assertTrue(operation.getState() instanceof Cancelled);
+		try {
+			operation.process(this.services);
+			fail();
+		} catch (OperationException e) {
+			System.out.println(e.getType());
+			assertEquals(1000, this.services.getAccountByIban(sourceIban).getBalance());
+			assertTrue(operation.getState() instanceof Cancelled);
+		}
+	}
+	
+	@Test
+	public void processInterfaceWitdrawnCancelled()
+			throws ClientException, BankException, AccountException, OperationException {
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.targetBank.createAccount(Bank.AccountType.CHECKING, this.targetClient, 1000, 0);
+
+		TransferOperation operation = new TransferOperation(sourceIban, targetIban, 100);
+
+		assertEquals(Operation.OPERATION_TRANSFER, operation.getType());
+		assertTrue(operation.getState() instanceof Registered);
+		operation.process(this.services);
+		assertEquals(900, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Withdrawn);
+		operation.cancel(this.services);
+		assertTrue(operation.getState() instanceof Cancelled);
+		try {
+			operation.process(this.services);
+			fail();
+		} catch (OperationException e) {
+			System.out.println(e.getType());
+			assertEquals(1000, this.services.getAccountByIban(sourceIban).getBalance());
+			assertTrue(operation.getState() instanceof Cancelled);
+		}
+	}
+	
+	@Test
+	public void processInterfaceWitdrawnCancelled2Times()
+			throws ClientException, BankException, AccountException, OperationException {
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.targetBank.createAccount(Bank.AccountType.CHECKING, this.targetClient, 1000, 0);
+
+		TransferOperation operation = new TransferOperation(sourceIban, targetIban, 100);
+
+		assertEquals(Operation.OPERATION_TRANSFER, operation.getType());
+		assertTrue(operation.getState() instanceof Registered);
+		operation.process(this.services);
+		assertEquals(900, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Withdrawn);
+		operation.cancel(this.services);
+		assertTrue(operation.getState() instanceof Cancelled);
+		try {
+			operation.cancel(this.services);
+			fail();
+		} catch (OperationException e) {
+			System.out.println(e.getType());
+			assertEquals(1000, this.services.getAccountByIban(sourceIban).getBalance());
+			assertTrue(operation.getState() instanceof Cancelled);
+		}
+	}
+	
+	@Test
+	public void processInterfaceDepositedCancelled()
+			throws ClientException, BankException, AccountException, OperationException {
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.targetBank.createAccount(Bank.AccountType.CHECKING, this.targetClient, 1000, 0);
+
+		TransferOperation operation = new TransferOperation(sourceIban, targetIban, 100);
+
+		assertEquals(Operation.OPERATION_TRANSFER, operation.getType());
+		assertTrue(operation.getState() instanceof Registered);
+		operation.process(this.services);
+		assertEquals(900, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Withdrawn);
+		operation.process(this.services);
+		assertEquals(1100, this.services.getAccountByIban(targetIban).getBalance());
+		assertTrue(operation.getState() instanceof Deposited);
+		operation.cancel(this.services);
+		assertTrue(operation.getState() instanceof Cancelled);
+		try {
+			operation.process(this.services);
+			fail();
+		} catch (OperationException e) {
+			System.out.println(e.getType());
+			assertEquals(1000, this.services.getAccountByIban(sourceIban).getBalance());
+			assertEquals(1000, this.services.getAccountByIban(targetIban).getBalance());
+			assertTrue(operation.getState() instanceof Cancelled);
+		}
+	}
+	
+	@Test
+	public void processInterfaceCompletedCancelled()
+			throws ClientException, BankException, AccountException, OperationException {
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.targetBank.createAccount(Bank.AccountType.CHECKING, this.targetClient, 1000, 0);
+
+		TransferOperation operation = new TransferOperation(sourceIban, targetIban, 100);
+
+		assertEquals(Operation.OPERATION_TRANSFER, operation.getType());
+		assertTrue(operation.getState() instanceof Registered);
+		operation.process();
+		assertEquals(900, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Withdrawn);
+		operation.process();
+		assertEquals(1100, this.services.getAccountByIban(targetIban).getBalance());
+		assertTrue(operation.getState() instanceof Deposited);
+		operation.process();
+		int comission = operation.commission();
+		assertEquals(900-comission, this.services.getAccountByIban(sourceIban).getBalance());
+		assertTrue(operation.getState() instanceof Completed);
+		try {
+			operation.cancel();
+			fail();
+		} catch (OperationException e) {
+			System.out.println(e.getType());
+			assertTrue(operation.getState() instanceof Completed);
+		}
+	}
+	
+	
+	@After
+	public void tearDown() {
+		Bank.clearBanks();
+	}
+
+}

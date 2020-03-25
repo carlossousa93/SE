@@ -1,0 +1,16 @@
+package State;
+
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+
+public class Deposited implements State {
+	
+	@Override
+	public void process(TransferOperation wrapper) {
+        wrapper.setState(new Completed());
+    }
+
+	@Override
+	public void cancel(TransferOperation wrapper) {
+		wrapper.setState(new Cancelled());	
+	}
+}

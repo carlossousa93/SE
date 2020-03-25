@@ -1,0 +1,36 @@
+package State;
+
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+
+public class Withdrawn implements State {
+	
+	@Override
+	public void process(TransferOperation wrapper) throws AccountException {
+		String sourceIban = wrapper.getSourceIban();
+		String targetIban = wrapper.getTargetIban();
+		int amount = wrapper.getValue();
+		
+		
+		if(sourceIban.substring(0, 3).equals(targetIban.substring(0, 3))) {
+			try {
+				wrapper.getServices().deposit(targetIban, amount);
+			} catch (AccountException e) {
+				System.out.println("A problem ocurred with the deposit!");
+			}
+			wrapper.setState(new Completed());
+		}else{
+			try {
+				wrapper.getServices().deposit(targetIban, amount);
+			} catch (AccountException e) {
+				System.out.println("A problem ocurred with the deposit!");
+			}
+			wrapper.setState(new Deposited());
+		}
+    }
+	
+	@Override
+	public void cancel(TransferOperation wrapper) {
+		wrapper.setState(new Cancelled());
+	}
+}

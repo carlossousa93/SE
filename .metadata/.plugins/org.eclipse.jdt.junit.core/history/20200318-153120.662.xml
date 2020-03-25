@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="sise-sibs" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodTest" time="0.453">
+    <testcase name="successComissionTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodTest" time="0.449"/>
+    <testcase name="failedTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodTest" time="0.001"/>
+    <testcase name="failedTransferInactiveTargetAccount" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodTest" time="0.001"/>
+    <testcase name="successStandardTransfer" classname="pt.ulisboa.tecnico.learnjava.sibs.sibs.TransferMethodTest" time="0.002"/>
+  </testsuite>
+</testrun>

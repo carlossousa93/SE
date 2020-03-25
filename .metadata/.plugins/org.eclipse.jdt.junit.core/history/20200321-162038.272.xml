@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ConstructorMethodTest (1)" project="sise-bank" tests="4" started="4" failures="1" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.004">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.001"/>
+    <testcase name="no9DigitsPhoneNumber" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.003">
+      <failure>java.lang.AssertionError: Expected exception: pt.ulisboa.tecnico.learnjava.bank.exceptions.ClientException&#13;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:32)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="negativeAge" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.0"/>
+    <testcase name="no9DigitsNif" classname="pt.ulisboa.tecnico.learnjava.bank.client.ConstructorMethodTest" time="0.0"/>
+  </testsuite>
+</testrun>

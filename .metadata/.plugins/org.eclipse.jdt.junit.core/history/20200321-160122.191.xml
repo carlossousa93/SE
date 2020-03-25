@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GetTotalBalanceMethodTest" project="sise-bank" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.bank.GetTotalBalanceMethodTest" time="0.011">
+    <testcase name="fiveAccounts" classname="pt.ulisboa.tecnico.learnjava.bank.bank.GetTotalBalanceMethodTest" time="0.01"/>
+    <testcase name="noAccounts" classname="pt.ulisboa.tecnico.learnjava.bank.bank.GetTotalBalanceMethodTest" time="0.001"/>
+  </testsuite>
+</testrun>

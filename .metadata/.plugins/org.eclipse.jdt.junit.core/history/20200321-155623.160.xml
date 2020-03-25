@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DeleteClientMethodTest" project="sise-bank" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.bank.DeleteClientMethodTest" time="0.007">
+    <testcase name="success" classname="pt.ulisboa.tecnico.learnjava.bank.bank.DeleteClientMethodTest" time="0.005"/>
+    <testcase name="noClientForNif" classname="pt.ulisboa.tecnico.learnjava.bank.bank.DeleteClientMethodTest" time="0.001"/>
+    <testcase name="successClientWithAccounts" classname="pt.ulisboa.tecnico.learnjava.bank.bank.DeleteClientMethodTest" time="0.001"/>
+  </testsuite>
+</testrun>

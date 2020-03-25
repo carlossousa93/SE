@@ -1,0 +1,97 @@
+package pt.ulisboa.tecnico.learnjava.sibs.sibs;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import State.Completed;
+import pt.ulisboa.tecnico.learnjava.bank.domain.Bank;
+import pt.ulisboa.tecnico.learnjava.bank.domain.Client;
+import pt.ulisboa.tecnico.learnjava.bank.domain.Person;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.BankException;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.ClientException;
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.PersonException;
+import pt.ulisboa.tecnico.learnjava.bank.services.Services;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.Operation;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+import pt.ulisboa.tecnico.learnjava.sibs.exceptions.OperationException;
+import pt.ulisboa.tecnico.learnjava.sibs.exceptions.SibsException;
+
+public class TransferMethodStateTest {
+	
+	private static final String ADDRESS = "Ave.";
+	private static final String PHONE_NUMBER = "987654321";
+	private static final String NIF = "123456789";
+	private static final String LAST_NAME = "Silva";
+	private static final String FIRST_NAME = "António";
+
+	private Sibs sibs;
+	private Bank sourceBank;
+	private Bank targetBank;
+	private Person person;
+	private Client sourceClient;
+	private Client targetClient;
+	private Services services;
+
+	@Before
+	public void setUp() throws BankException, AccountException, ClientException, PersonException {
+		this.services = new Services();
+		this.sibs = new Sibs(100, services);
+		this.sourceBank = new Bank("CGD");
+		this.targetBank = new Bank("BPI");
+		this.person = new Person( FIRST_NAME, LAST_NAME, ADDRESS, PHONE_NUMBER);
+		this.sourceClient = new Client(this.sourceBank, this.person, NIF, 33);
+		this.targetClient = new Client(this.targetBank, this.person, NIF, 22);
+//		this.targetSameBankClient = new Client(this.sourceBank, this.person, NIF, 22);
+	}
+
+	@Test
+	public void successDiffBanks() throws BankException, AccountException, SibsException, OperationException, ClientException {
+		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+		String targetIban = this.targetBank.createAccount(Bank.AccountType.CHECKING, this.targetClient, 1000, 0);
+
+		this.sibs.transfer(sourceIban, targetIban, 100);
+		int comission = this.sibs.getOperation(0).commission();
+		
+		TransferOperation operation = (TransferOperation) this.sibs.getOperation(0);
+		assertTrue(operation.getState() instanceof Completed);
+		assertEquals(900-comission, this.services.getAccountByIban(sourceIban).getBalance());
+		assertEquals(1100, this.services.getAccountByIban(targetIban).getBalance());
+		assertEquals(1, this.sibs.getNumberOfOperations());
+		assertEquals(100, this.sibs.getTotalValueOfOperations());
+		assertEquals(100, this.sibs.getTotalValueOfOperationsForType(Operation.OPERATION_TRANSFER));
+		assertEquals(0, this.sibs.getTotalValueOfOperationsForType(Operation.OPERATION_PAYMENT));	
+	}
+	
+//	@Test
+//	public void successSameBanks() throws BankException, AccountException, SibsException, OperationException, ClientException {
+//		String sourceIban = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.sourceClient, 1000, 0);
+//		String targetIbanSameBank = this.sourceBank.createAccount(Bank.AccountType.CHECKING, this.targetSameBankClient, 1000, 0);
+//
+//		this.sibs.transfer(sourceIban, targetIbanSameBank, 100);
+//		
+//		TransferOperation operation = (TransferOperation) this.sibs.getOperation(0);
+//		assertTrue(operation.getState() instanceof Completed);
+//		assertEquals(900, this.services.getAccountByIban(sourceIban).getBalance());
+//		assertEquals(1100, this.services.getAccountByIban(targetIbanSameBank).getBalance());
+//		assertEquals(1, this.sibs.getNumberOfOperations());
+//		assertEquals(100, this.sibs.getTotalValueOfOperations());
+//		assertEquals(100, this.sibs.getTotalValueOfOperationsForType(Operation.OPERATION_TRANSFER));
+//		assertEquals(0, this.sibs.getTotalValueOfOperationsForType(Operation.OPERATION_PAYMENT));
+//		
+//	}
+//	
+//	
+	
+	
+	@After
+	public void tearDown() {
+		Bank.clearBanks();
+	}
+
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="WithdrawMethodTest" project="sise-bank" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.008">
+    <testcase name="amountNotEqualToBalanceInSavingsAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.006"/>
+    <testcase name="successForSavingsAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.0"/>
+    <testcase name="negativeAmountForSavingsAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.0"/>
+    <testcase name="negativeAmountForSalaryAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.001"/>
+    <testcase name="notEnoughBalanceForCheckingAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.0"/>
+    <testcase name="noWithdrawForYoung" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.0"/>
+    <testcase name="successForCheckingAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.0"/>
+    <testcase name="failNegativeBalanceForSalaryAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.0"/>
+    <testcase name="negativeAmountForCheckingAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.0"/>
+    <testcase name="successNegativeBalanceForSalaryAccount" classname="pt.ulisboa.tecnico.learnjava.bank.account.WithdrawMethodTest" time="0.001"/>
+  </testsuite>
+</testrun>

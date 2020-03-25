@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ExamTests" project="sise-bank" tests="17" started="17" failures="0" errors="0" ignored="0">
+  <testsuite name="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.011">
+    <testcase name="isInactiveAccount" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.003"/>
+    <testcase name="successInactiveAccount" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="withdrawActiveAccount" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.001"/>
+    <testcase name="balanceOfAccountIsZeroAndCheckingIsNull" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="sumOfBalancesIsNegative" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="depositInactiveAccount" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.001"/>
+    <testcase name="depositActiveAccount" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="withdrawInactiveAccount" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.001"/>
+    <testcase name="clientHasAllThreeInactive" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.001"/>
+    <testcase name="countNumberOfInactiveAccountsForClientThatHasOneActiveAndTwoInactive" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.001"/>
+    <testcase name="differentClients" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="balanceOfAccountIsZeroAndCheckingIsNotNull" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="CheckingClientHasOver18" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.001"/>
+    <testcase name="countNumberOfInactiveAccountsForClientThatHasAllThreeInactive" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="SalaryClientHasOver18" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="SavingsClientHasOver18" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.0"/>
+    <testcase name="clientHasOneActiveAndTwoInactive" classname="pt.ulisboa.tecnico.learnjava.bank.exam.ExamTests" time="0.001"/>
+  </testsuite>
+</testrun>

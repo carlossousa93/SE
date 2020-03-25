@@ -1,0 +1,20 @@
+package State;
+
+import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+
+public class Deposited implements State {
+	@Override
+	public void process(TransferOperation wrapper) throws AccountException {
+		String sourceIban = wrapper.getSourceIban();		
+		int comission = wrapper.commission();
+		
+		wrapper.getServices().withdraw(sourceIban, comission);
+        wrapper.setState(new Completed());
+    }
+
+	@Override
+	public void cancel(TransferOperation wrapper) {
+		wrapper.setState(new Cancelled());	
+	}
+}

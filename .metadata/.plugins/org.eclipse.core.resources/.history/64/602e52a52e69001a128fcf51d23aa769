@@ -1,0 +1,9 @@
+package pt.ulisboa.tecnico.learnjava.bank.domain;
+
+public class Person {
+	
+	private final String firstName;
+	private final String lastName;
+	private final String address;
+
+}

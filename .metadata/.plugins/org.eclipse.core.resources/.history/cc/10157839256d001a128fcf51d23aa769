@@ -1,0 +1,16 @@
+package State;
+
+import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
+
+public class Registered implements State {
+	
+	@Override
+	public void process(TransferOperation wrapper) {		
+		wrapper.setState(new Withdrawn());
+    }
+
+	@Override
+	public void cancel(TransferOperation wrapper) {
+		wrapper.setState(new Cancelled());
+	}
+}
