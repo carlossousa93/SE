@@ -88,14 +88,14 @@ public class MBWayPattern {
 
 	private static MBWayAccount createMBWayAccount(String iban) {
 		MBWayAccount account = new MBWayAccount();
-		Account ckAccount = getAccountByIban(iban);
+		Account ckAccount = getAccountByIbanNumber(iban);
 		account.setAccount(ckAccount);
 		account.setIban(iban);
 		return account;
 
 	}
 
-	public static Account getAccountByIban(String iban) {
+	public static Account getAccountByIbanNumber(String iban) {
 		String code = iban.substring(0, 3);
 		String accountId = iban.substring(3);
 
