@@ -65,15 +65,9 @@ public class MBWayPattern {
 	private static MBWay retriveMBWayFromDatabase()
 			throws MBWayException, BankException, PersonException, ClientException, AccountException {
 		Bank bank = new Bank("cgd");
-		Person person1 = new Person("Joao", "Reis", "Rua Nicolau Nasoni", "962770474");
-		Person person2 = new Person("Carlos", "Sousa", "Rua Cristiano Ronaldo", "912345678");
-		Person person3 = new Person("José", "Rodrigues", "Rua de Beja", "931234567");
-		Client client1 = new Client(bank, person1, "111111111", 24);
-		Client client2 = new Client(bank, person2, "222222222", 27);
-		Client client3 = new Client(bank, person3, "333333333", 25);
-		String iban1 = bank.createAccount(AccountType.CHECKING, client1, 1000, 1000);
-		String iban2 = bank.createAccount(AccountType.CHECKING, client2, 1000, 1000);
-		String iban3 = bank.createAccount(AccountType.CHECKING, client3, 1000, 1000);
+		String iban1 = bank.createAccount(AccountType.CHECKING, new Client(bank, new Person("Joao", "Reis", "Rua Nicolau Nasoni", "962770474"), "111111111", 24), 1000, 1000);
+		String iban2 = bank.createAccount(AccountType.CHECKING, new Client(bank, new Person("Carlos", "Sousa", "Rua CR7", "912345678"), "222222222", 27), 1000, 1000);
+		String iban3 = bank.createAccount(AccountType.CHECKING, new Client(bank, new Person("José", "Rodrigues", "Rua de Beja", "931234567"), "333333333", 25), 1000, 1000);
 		MBWayAccount account1 = createMBWayAccount(iban1);
 		MBWayAccount account2 = createMBWayAccount(iban2);
 		MBWayAccount account3 = createMBWayAccount(iban3);
