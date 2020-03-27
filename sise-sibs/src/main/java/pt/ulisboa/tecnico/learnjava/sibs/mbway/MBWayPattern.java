@@ -45,10 +45,10 @@ public class MBWayPattern {
 				commandB(ctrl, test);
 				break;
 			case "mbway-transfer":
-				commandC(ctrl, command[1], command[2]);
+				commandC(ctrl, command);
 				break;
 			case "mbway-split-bill":
-				commandD(ctrl, command[1], command[2]);
+				commandD(ctrl, command);
 				break;
 
 			case "exit":
@@ -117,10 +117,10 @@ public class MBWayPattern {
 		ctrl.confirmationMessage(value);
 	}
 
-	public static void commandC(MBWayController ctrl, String targetPhoneNumber, String amountToTransfer)
+	public static void commandC(MBWayController ctrl, String[] command)
 			throws SibsException, AccountException, OperationException {
-		String targetNumber = targetPhoneNumber;
-		int amount = Integer.parseInt(amountToTransfer);
+		String targetNumber = command[1];
+		int amount = Integer.parseInt(command[2]);
 		try {
 			ctrl.mbwayTransfer(targetNumber, amount);
 			ctrl.transferMessage("Transfer performed successfully!");
@@ -129,20 +129,20 @@ public class MBWayPattern {
 		}
 	}
 
-	public static void commandD(MBWayController ctrl, String nFriends, String tAmount)
+	public static void commandD(MBWayController ctrl, String[] command)
 			throws MBWayException, SibsException, AccountException, OperationException {
-		int numberFriends = Integer.parseInt(nFriends);
-		int totalAmount = Integer.parseInt(tAmount);
+		int numberFriends = Integer.parseInt(command[1]);
+		int totalAmount = Integer.parseInt(command[2]);
 		Map<String, Integer> splitbill = new HashMap<String, Integer>();
 		boolean active = true;
 		Scanner split = new Scanner(System.in);
 		while (active) {
 			System.out.println("Which operation to you want to perform? friend <PHONE_NUMBER> <AMOUNT>; submit");
 			String operation = split.nextLine();
-			String[] command = operation.split(" ");
+			String[] command2 = operation.split(" ");
 			switch (command[0]) {
 			case "friend":
-				active = commandF(ctrl, command[1], command[2], splitbill);
+				active = commandF(ctrl, command2, splitbill);
 				break;
 			case "G":
 				active = commandG(ctrl, numberFriends, totalAmount, splitbill);
@@ -153,10 +153,9 @@ public class MBWayPattern {
 		}
 	}
 
-	public static boolean commandF(MBWayController ctrl, String sNumber, String amount,
-			Map<String, Integer> splitbill) {
-		String sourceNumber = sNumber;
-		int amountPerPerson = Integer.parseInt(amount);
+	public static boolean commandF(MBWayController ctrl, String[] command, Map<String, Integer> splitbill) {
+		String sourceNumber = command[1];
+		int amountPerPerson = Integer.parseInt(command[2]);
 		boolean active = true;
 		try {
 			if (ctrl.friend(sourceNumber, amountPerPerson)) {
