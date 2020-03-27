@@ -33,23 +33,25 @@ public class MBWayPattern {
 
 		while (state) {
 			System.out.println(
-					"Which operation to you want to perform? [A]- Associate MBWay; [B]- Confirm MBWay; [C]- Transfer; [D]- Split Bill; [E]- Exit");
+					"Which operation to you want to perform? associate-mbway; confirm-mbway; mbway-transfer <TARGET_PHONE_NUMBER> <AMOUNT>; "
+							+ "mbway-split-bill <NUMBER_OF_FRIENDS> <AMOUNT>; exit");
 			String operation = test.nextLine();
-			switch (operation) {
-			case "A":
+			String[] command = operation.split(" ");
+			switch (command[0]) {
+			case "associate-mbway":
 				commandA(ctrl);
 				break;
-			case "B":
+			case "confirm-mbway":
 				commandB(ctrl, test);
 				break;
-			case "C":
-				commandC(ctrl, test);
+			case "mbway-transfer":
+				commandC(ctrl, command[1], command[2]);
 				break;
-			case "D":
-				commandD(ctrl, test);
+			case "mbway-split-bill":
+				commandD(ctrl, command[1], command[2]);
 				break;
 
-			case "E":
+			case "exit":
 				System.out.println("Thanks for using MBWay!");
 				state = false;
 				break;
@@ -115,12 +117,10 @@ public class MBWayPattern {
 		ctrl.confirmationMessage(value);
 	}
 
-	public static void commandC(MBWayController ctrl, Scanner test)
+	public static void commandC(MBWayController ctrl, String targetPhoneNumber, String amountToTransfer)
 			throws SibsException, AccountException, OperationException {
-		System.out.println("Insert the target number:");
-		String targetNumber = test.nextLine();
-		System.out.println("Insert the amount:");
-		int amount = Integer.parseInt(test.nextLine());
+		String targetNumber = targetPhoneNumber;
+		int amount = Integer.parseInt(amountToTransfer);
 		try {
 			ctrl.mbwayTransfer(targetNumber, amount);
 			ctrl.transferMessage("Transfer performed successfully!");
@@ -129,19 +129,20 @@ public class MBWayPattern {
 		}
 	}
 
-	public static void commandD(MBWayController ctrl, Scanner test)
+	public static void commandD(MBWayController ctrl, String nFriends, String tAmount)
 			throws MBWayException, SibsException, AccountException, OperationException {
-		System.out.println("Insert number of friends (Including yourself):");
-		int numberFriends = Integer.parseInt(test.nextLine());
-		System.out.println("Insert total amount:");
-		int totalAmount = Integer.parseInt(test.nextLine());
+		int numberFriends = Integer.parseInt(nFriends);
+		int totalAmount = Integer.parseInt(tAmount);
 		Map<String, Integer> splitbill = new HashMap<String, Integer>();
 		boolean active = true;
+		Scanner split = new Scanner(System.in);
 		while (active) {
-			System.out.println("Which operation to you want to perform? [F]- Select friend; [G]- Submit Split Bill");
-			switch (test.nextLine()) {
-			case "F":
-				active = commandF(ctrl, test, splitbill);
+			System.out.println("Which operation to you want to perform? friend <PHONE_NUMBER> <AMOUNT>; submit");
+			String operation = split.nextLine();
+			String[] command = operation.split(" ");
+			switch (command[0]) {
+			case "friend":
+				active = commandF(ctrl, command[1], command[2], splitbill);
 				break;
 			case "G":
 				active = commandG(ctrl, numberFriends, totalAmount, splitbill);
@@ -152,11 +153,10 @@ public class MBWayPattern {
 		}
 	}
 
-	public static boolean commandF(MBWayController ctrl, Scanner test, Map<String, Integer> splitbill) {
-		System.out.println("Insert one source number:");
-		String sourceNumber = test.nextLine();
-		System.out.println("Insert amount to pay:");
-		int amountPerPerson = Integer.parseInt(test.nextLine());
+	public static boolean commandF(MBWayController ctrl, String sNumber, String amount,
+			Map<String, Integer> splitbill) {
+		String sourceNumber = sNumber;
+		int amountPerPerson = Integer.parseInt(amount);
 		boolean active = true;
 		try {
 			if (ctrl.friend(sourceNumber, amountPerPerson)) {
@@ -188,7 +188,9 @@ public class MBWayPattern {
 		}
 		if (sumAmounts == totalAmount) {
 			for (String number : splitbill.keySet()) {
-				ctrl.mbwayTransfer(number, splitbill.get(number));
+				if (number != ctrl.getModel().getPhoneNumber()) {
+					ctrl.mbwayTransfer(number, splitbill.get(number));
+				}
 			}
 			ctrl.splitBillMessage("Bill payed successfully!");
 		} else {

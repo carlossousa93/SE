@@ -15,6 +15,14 @@ public class MBWayController {
 		this.view = view;
 	}
 
+	public MBWay getModel() {
+		return this.model;
+	}
+
+	public void setModel(MBWay model) {
+		this.model = model;
+	}
+
 	public int associateMbway() {
 		int code = this.model.code();
 		return code;
