@@ -59,11 +59,9 @@ public class MBWayPattern {
 				System.out.println("Invalid operation. Try again!");
 			}
 		}
-
 		test.close();
-
 	}
-
+	
 	private static MBWay retriveMBWayFromDatabase()
 			throws MBWayException, BankException, PersonException, ClientException, AccountException {
 		Bank bank = new Bank("cgd");
@@ -117,7 +115,7 @@ public class MBWayPattern {
 		ctrl.confirmationMessage(value);
 	}
 
-	public static void commandC(MBWayController ctrl, String[] command)
+	public static void commandC(MBWayController ctrl, String[] command) // (Controller, String targetNumber, String Amount)
 			throws SibsException, AccountException, OperationException {
 		String targetNumber = command[1];
 		int amount = Integer.parseInt(command[2]);

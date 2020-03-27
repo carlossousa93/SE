@@ -167,28 +167,22 @@ public class Bank {
 		Services services = new Services();
 		Bank cgd = new Bank("CGD");
 
-		Person person1 = new Person("João", "Manuel", "Street", "987654321");
-		Person person2 = new Person("José", "Malaquias", "Teerts", "978456321");
-
-		Client clientOne = new Client(cgd, person1, "123456789", 34);
-		Client clientTwo = new Client(cgd, person2, "123456788", 34);
+		Client clientOne = new Client(cgd, new Person("João", "Manuel", "Street", "987654321"), "123456789", 34);
+		Client clientTwo = new Client(cgd, new Person("José", "Malaquias", "Teerts", "978456321"), "123456788", 34);
 
 		cgd.createAccount(AccountType.CHECKING, clientOne, 100, 0);
-		String iban = cgd.createAccount(AccountType.CHECKING, clientTwo, 1000, 0);
-
+		
 		System.out.println(cgd.getTotalNumberOfAccounts());
 
-		Account account = services.getAccountByIban(iban);
-
 		try {
-			account.deposit(100);
+			services.getAccountByIban(cgd.createAccount(AccountType.CHECKING, clientTwo, 1000, 0)).deposit(100);
 		} catch (AccountException e) {
 			System.out.println("You tried to deposit a negative amount of " + e.getValue());
 		}
 
-		System.out.println(account.getBalance());
+		System.out.println(services.getAccountByIban(cgd.createAccount(AccountType.CHECKING, clientTwo, 1000, 0)).getBalance());
 
-		cgd.deleteAccount(account);
+		cgd.deleteAccount(services.getAccountByIban(cgd.createAccount(AccountType.CHECKING, clientTwo, 1000, 0)));
 
 		System.out.println(cgd.getTotalNumberOfAccounts());
 	}

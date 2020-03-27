@@ -78,21 +78,28 @@ public class MBWay {
 
 	public void transfer(int amount, String targetNumber)
 			throws MBWayException, SibsException, AccountException, OperationException {
-		if (this.account.isAssociated()) {
-			if (getFriends().containsKey(targetNumber)) {
-				if (amount <= getAccountBalance(this.account)) {
-					Services service = new Services();
-					Sibs sibs = new Sibs(100, service);
-					sibs.transfer(this.account.getIban(), mbwaydb.get(targetNumber).getIban(), amount);
-
-				} else {
-					throw new MBWayException("Not enough money on the source account.");
-				}
-			} else {
-				throw new MBWayException("Wrong phone number.");
-			}
-		} else {
+				
+		transferValidation(amount, targetNumber);
+		
+		Services service = new Services();
+		Sibs sibs = new Sibs(100, service);
+		sibs.transfer(this.account.getIban(), mbwaydb.get(targetNumber).getIban(), amount);
+			
+	}
+	
+	public void transferValidation(int amount, String targetNumber) throws MBWayException, SibsException, 
+	AccountException, OperationException {
+		
+		if(!this.account.isAssociated()) {
 			throw new MBWayException("Account not associated.");
+		}
+		
+		if(!getFriends().containsKey(targetNumber)) {
+			throw new MBWayException("Wrong phone number.");
+		}
+		
+		if(amount > getAccountBalance(this.account)) {
+			throw new MBWayException("Not enough money on the source account.");
 		}
 	}
 
