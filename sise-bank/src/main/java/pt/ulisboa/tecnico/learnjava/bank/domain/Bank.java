@@ -167,10 +167,9 @@ public class Bank {
 		Services services = new Services();
 		Bank cgd = new Bank("CGD");
 
-		Client clientOne = new Client(cgd, new Person("João", "Manuel", "Street", "987654321"), "123456789", 34);
 		Client clientTwo = new Client(cgd, new Person("José", "Malaquias", "Teerts", "978456321"), "123456788", 34);
 
-		cgd.createAccount(AccountType.CHECKING, clientOne, 100, 0);
+		cgd.createAccount(AccountType.CHECKING, new Client(cgd, new Person("João", "Manuel", "Street", "987654321"), "123456789", 34), 100, 0);
 		
 		System.out.println(cgd.getTotalNumberOfAccounts());
 
