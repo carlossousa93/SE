@@ -66,6 +66,7 @@ public class MBWay {
 		if (this.friends.containsKey(number)) {
 			throw new MBWayException();
 		}
+		account.setAssociated(true);
 		this.friends.put(number, account);
 		mbwaydb.put(number, account);
 	}
