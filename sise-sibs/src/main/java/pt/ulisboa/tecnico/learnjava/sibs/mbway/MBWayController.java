@@ -160,11 +160,30 @@ public class MBWayController {
 	public boolean commandG(int numberFriends, int totalAmount,
 			Map<String, Integer> splitbill) throws MBWayException, SibsException, AccountException, OperationException {
 		boolean active = true;
-		commandGAuxiliar(numberFriends, splitbill, active);
-		int sumAmounts = 0;
-		for (int amount : splitbill.values()) {
-			sumAmounts += amount;
+		commandGAuxiliarValidation(numberFriends, splitbill, active);
+		
+		commandGAuxiliar(totalAmount, splitbill, active);
+		active = false;
+		return active;
+	}
+	
+	public boolean commandGAuxiliarValidation(int numberFriends, Map<String, Integer> splitbill, boolean active) {
+		if (splitbill.size() < numberFriends) {
+			splitBillMessage("Oh no! One or more friends are missing.");
+			active = false;
+			return active;
+		} else if (splitbill.size() > numberFriends) {
+			splitBillMessage("Oh no! Too many friends.");
+			active = false;
+			return active;
 		}
+		return active;
+	}
+	
+	public boolean commandGAuxiliar(int totalAmount, Map<String, Integer> splitbill, boolean active) throws SibsException, AccountException, OperationException {
+		
+		int sumAmounts = commandGAmounts(splitbill);
+		
 		if (sumAmounts == totalAmount) {
 			for (String number : splitbill.keySet()) {
 				if (!number.equals(getModel().getPhoneNumber())) {
@@ -181,21 +200,14 @@ public class MBWayController {
 		} else {
 			splitBillMessage("Something is wrong. Did you set the bill amount right?");
 		}
-		active = false;
 		return active;
 	}
 	
-	public boolean commandGAuxiliar(int numberFriends, Map<String, Integer> splitbill, boolean active) {
-		if (splitbill.size() < numberFriends) {
-			splitBillMessage("Oh no! One or more friends are missing.");
-			active = false;
-			return active;
-		} else if (splitbill.size() > numberFriends) {
-			splitBillMessage("Oh no! Too many friends.");
-			active = false;
-			return active;
+	public int commandGAmounts(Map<String, Integer> splitbill) {
+		int sumAmounts = 0;
+		for (int amount : splitbill.values()) {
+			sumAmounts += amount;
 		}
-		return active;
+		return sumAmounts;
 	}	
-	
 }
