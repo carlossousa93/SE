@@ -1,6 +1,5 @@
 package pt.ulisboa.tecnico.learnjava.bank.domain;
 
-import pt.ulisboa.tecnico.learnjava.bank.exceptions.ClientException;
 import pt.ulisboa.tecnico.learnjava.bank.exceptions.PersonException;
 
 public class Person {
