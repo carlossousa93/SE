@@ -65,6 +65,7 @@ public class MBWayController {
 	}
 	
 	public void mainAuxiliar(Scanner test) throws SibsException, AccountException, OperationException, MBWayException {
+		System.out.println("Welcome to MbWay!");
 		boolean state = true;
 		while (state) {
 			System.out.println(

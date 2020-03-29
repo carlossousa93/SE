@@ -1,7 +1,5 @@
 package pt.ulisboa.tecnico.learnjava.sibs.mbway;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import pt.ulisboa.tecnico.learnjava.bank.domain.Account;
@@ -27,7 +25,6 @@ public class MBWayPattern {
 		MBWayController ctrl = new MBWayController(model, view);
 
 		Scanner test = new Scanner(System.in);
-		System.out.println("Welcome to MbWay!");
 		
 		ctrl.mainAuxiliar(test);
 		
