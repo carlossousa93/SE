@@ -25,6 +25,7 @@ public class MBWayPattern {
 		MBWayController ctrl = new MBWayController(model, view);
 
 		Scanner test = new Scanner(System.in);
+		System.out.println("Welcome to MbWay!");
 		
 		ctrl.mainAuxiliar(test);
 		
