@@ -23,7 +23,6 @@ public class TransferOperationConstructorMethodTest {
 		assertEquals(100, operation.getValue());
 		assertEquals(SOURCE_IBAN, operation.getSourceIban());
 		assertEquals(TARGET_IBAN, operation.getTargetIban());
-//		assertEquals("Registered", operation.getState());
 		assertTrue(operation.getState() instanceof Registered);
 	}
 
