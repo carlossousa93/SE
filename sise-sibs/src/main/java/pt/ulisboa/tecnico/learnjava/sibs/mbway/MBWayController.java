@@ -160,13 +160,14 @@ public class MBWayController {
 	public boolean commandG(int numberFriends, int totalAmount,
 			Map<String, Integer> splitbill) throws MBWayException, SibsException, AccountException, OperationException {
 		boolean active = true;
-		commandGAuxiliarValidation(numberFriends, splitbill, active);
-		commandGAuxiliar(totalAmount, splitbill, active);
+		commandGAuxiliarValidation(numberFriends, splitbill);
+		commandGAuxiliar(totalAmount, splitbill);
 		active = false;
 		return active;
 	}
 	
-	public boolean commandGAuxiliarValidation(int numberFriends, Map<String, Integer> splitbill, boolean active) {
+	public boolean commandGAuxiliarValidation(int numberFriends, Map<String, Integer> splitbill) {
+		boolean active = true;
 		if (splitbill.size() < numberFriends) {
 			splitBillMessage("Oh no! One or more friends are missing.");
 			active = false;
@@ -179,8 +180,9 @@ public class MBWayController {
 		return active;
 	}
 	
-	public boolean commandGAuxiliar(int totalAmount, Map<String, Integer> splitbill, boolean active) throws SibsException, AccountException, OperationException {
+	public boolean commandGAuxiliar(int totalAmount, Map<String, Integer> splitbill) throws SibsException, AccountException, OperationException {
 		
+		boolean active = true;
 		int sumAmounts = commandGAmounts(splitbill);
 		
 		if (sumAmounts == totalAmount) {
