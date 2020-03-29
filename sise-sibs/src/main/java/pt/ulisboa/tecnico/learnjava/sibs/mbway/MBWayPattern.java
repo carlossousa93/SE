@@ -27,7 +27,7 @@ public class MBWayPattern {
 		Scanner test = new Scanner(System.in);
 		System.out.println("Welcome to MbWay!");
 		
-		ctrl.mainAuxiliar(test);
+		ctrl.updateView(test);
 		
 		test.close();
 	}

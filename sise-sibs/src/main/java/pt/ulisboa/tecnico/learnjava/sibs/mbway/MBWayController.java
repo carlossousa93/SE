@@ -64,7 +64,7 @@ public class MBWayController {
 		this.view.printSplitBillOutput(output);
 	}
 	
-	public void mainAuxiliar(Scanner test) throws SibsException, AccountException, OperationException, MBWayException {
+	public void updateView(Scanner test) throws SibsException, AccountException, OperationException, MBWayException {
 		boolean state = true;
 		while (state) {
 			System.out.println(
@@ -141,7 +141,7 @@ public class MBWayController {
 			}
 		}
 	}
-
+	
 	public boolean commandF(String[] command, Map<String, Integer> splitbill) {
 		String sourceNumber = command[1];
 		int amountPerPerson = Integer.parseInt(command[2]);
@@ -161,7 +161,6 @@ public class MBWayController {
 			Map<String, Integer> splitbill) throws MBWayException, SibsException, AccountException, OperationException {
 		boolean active = true;
 		commandGAuxiliarValidation(numberFriends, splitbill, active);
-		
 		commandGAuxiliar(totalAmount, splitbill, active);
 		active = false;
 		return active;
