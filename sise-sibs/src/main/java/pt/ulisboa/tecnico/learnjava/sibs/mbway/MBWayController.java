@@ -126,7 +126,6 @@ public class MBWayController {
 		int totalAmount = Integer.parseInt(command[2]);
 		Map<String, Integer> splitbill = new HashMap<String, Integer>();
 		boolean active = true;
-		//Scanner split = new Scanner(System.in);
 		while (active) {
 			System.out.println("Which operation to you want to perform? friend <PHONE_NUMBER> <AMOUNT>; submit");
 			String operation = test.nextLine();
@@ -142,7 +141,6 @@ public class MBWayController {
 				System.out.println("Invalid operation. Try again!");
 			}
 		}
-		//split.close();
 	}
 
 	public boolean commandF(String[] command, Map<String, Integer> splitbill) {
@@ -163,15 +161,7 @@ public class MBWayController {
 	public boolean commandG(int numberFriends, int totalAmount,
 			Map<String, Integer> splitbill) throws MBWayException, SibsException, AccountException, OperationException {
 		boolean active = true;
-		if (splitbill.size() < numberFriends) {
-			splitBillMessage("Oh no! One or more friends are missing.");
-			active = false;
-			return active;
-		} else if (splitbill.size() > numberFriends) {
-			splitBillMessage("Oh no! Too many friends.");
-			active = false;
-			return active;
-		}
+		commandGAuxiliar(numberFriends, splitbill, active);
 		int sumAmounts = 0;
 		for (int amount : splitbill.values()) {
 			sumAmounts += amount;
@@ -195,4 +185,18 @@ public class MBWayController {
 		active = false;
 		return active;
 	}
+	
+	public boolean commandGAuxiliar(int numberFriends, Map<String, Integer> splitbill, boolean active) {
+		if (splitbill.size() < numberFriends) {
+			splitBillMessage("Oh no! One or more friends are missing.");
+			active = false;
+			return active;
+		} else if (splitbill.size() > numberFriends) {
+			splitBillMessage("Oh no! Too many friends.");
+			active = false;
+			return active;
+		}
+		return active;
+	}	
+	
 }
