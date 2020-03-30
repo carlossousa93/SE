@@ -67,6 +67,7 @@ public class TransferOperationStateInterfaceTest {
 		operation.process(this.services);
 		assertEquals(1100, this.services.getAccountByIban(targetIban).getBalance());
 		assertTrue(operation.getState() instanceof Deposited);
+		assertEquals(operation.getState().getClass(), Deposited.class);
 		operation.process(this.services);
 		int comission = operation.commission();
 		assertEquals(900-comission, this.services.getAccountByIban(sourceIban).getBalance());

@@ -37,7 +37,7 @@ public class Retry implements State{
 		try {
     		this.previewState.process(wrapper, services);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("It is not possibe to process the operation!");
 		}
 	}
 	
