@@ -15,6 +15,9 @@ import pt.ulisboa.tecnico.learnjava.bank.domain.Bank;
 import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
 import pt.ulisboa.tecnico.learnjava.bank.services.Services;
 import pt.ulisboa.tecnico.learnjava.sibs.State.Error;
+import pt.ulisboa.tecnico.learnjava.sibs.State.Registered;
+import pt.ulisboa.tecnico.learnjava.sibs.State.Retry;
+import pt.ulisboa.tecnico.learnjava.sibs.State.Withdrawn;
 import pt.ulisboa.tecnico.learnjava.sibs.domain.Sibs;
 import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
 import pt.ulisboa.tecnico.learnjava.sibs.exceptions.OperationException;
@@ -35,9 +38,13 @@ public class RetryMockitoTest {
         doThrow(AccountException.class).when(servicesMock).withdraw(sourceIban, 100);
         
         sibsMock.transfer(sourceIban, targetIban, 100);
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Registered);
         sibsMock.processOperations();
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Retry);
         sibsMock.processOperations();
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Retry);
         sibsMock.processOperations();
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Retry);
         sibsMock.processOperations();
         
         verify(servicesMock, times(3)).withdraw(sourceIban, 100);
@@ -58,10 +65,15 @@ public class RetryMockitoTest {
         doThrow(AccountException.class).when(servicesMock).deposit(targetIban, 100);
         
         sibsMock.transfer(sourceIban, targetIban, 100);
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Registered);
         sibsMock.processOperations();
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Withdrawn);
         sibsMock.processOperations();
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Retry);
         sibsMock.processOperations();
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Retry);
         sibsMock.processOperations();
+        assertTrue(((TransferOperation) sibsMock.getOperation(0)).getState() instanceof Retry);
         sibsMock.processOperations();
         
         verify(servicesMock, times(1)).withdraw(sourceIban, 100);
