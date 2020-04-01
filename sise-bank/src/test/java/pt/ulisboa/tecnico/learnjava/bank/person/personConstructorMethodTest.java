@@ -25,7 +25,6 @@ public class personConstructorMethodTest {
 		assertEquals(LAST_NAME, person.getLastName());
 		assertEquals(PHONE_NUMBER, person.getPhoneNumber());
 		assertEquals(ADDRESS, person.getAddress());
-		
 	}
 
 	@Test(expected = PersonException.class)

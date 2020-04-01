@@ -1,11 +1,11 @@
 package pt.ulisboa.tecnico.learnjava.sibs.domain;
 
-import State.Cancelled;
-import State.Completed;
-import State.Retry;
-import State.Error;
 import pt.ulisboa.tecnico.learnjava.bank.exceptions.AccountException;
 import pt.ulisboa.tecnico.learnjava.bank.services.Services;
+import pt.ulisboa.tecnico.learnjava.sibs.State.Cancelled;
+import pt.ulisboa.tecnico.learnjava.sibs.State.Completed;
+import pt.ulisboa.tecnico.learnjava.sibs.State.Error;
+import pt.ulisboa.tecnico.learnjava.sibs.State.Retry;
 import pt.ulisboa.tecnico.learnjava.sibs.exceptions.OperationException;
 import pt.ulisboa.tecnico.learnjava.sibs.exceptions.SibsException;
 

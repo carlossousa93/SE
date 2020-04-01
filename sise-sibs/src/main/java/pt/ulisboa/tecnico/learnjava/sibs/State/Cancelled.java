@@ -1,4 +1,4 @@
-package State;
+package pt.ulisboa.tecnico.learnjava.sibs.State;
 
 import pt.ulisboa.tecnico.learnjava.bank.services.Services;
 import pt.ulisboa.tecnico.learnjava.sibs.domain.TransferOperation;
