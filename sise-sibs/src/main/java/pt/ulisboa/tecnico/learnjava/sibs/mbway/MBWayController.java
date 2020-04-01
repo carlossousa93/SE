@@ -63,7 +63,7 @@ public class MBWayController {
 	public void splitBillMessage(String output) {
 		this.view.printSplitBillOutput(output);
 	}
-	
+
 	public void updateView(Scanner test) throws SibsException, AccountException, OperationException, MBWayException {
 		boolean state = true;
 		while (state) {
@@ -94,7 +94,7 @@ public class MBWayController {
 			}
 		}
 	}
-	
+
 	public void commandA() {
 		int code = associateMbway();
 		associationMessage(code);
@@ -141,7 +141,7 @@ public class MBWayController {
 			}
 		}
 	}
-	
+
 	public boolean commandF(String[] command, Map<String, Integer> splitbill) {
 		String sourceNumber = command[1];
 		int amountPerPerson = Integer.parseInt(command[2]);
@@ -157,34 +157,35 @@ public class MBWayController {
 		return active;
 	}
 
-	public boolean commandG(int numberFriends, int totalAmount,
-			Map<String, Integer> splitbill) throws MBWayException, SibsException, AccountException, OperationException {
+	public boolean commandG(int numberFriends, int totalAmount, Map<String, Integer> splitbill)
+			throws MBWayException, SibsException, AccountException, OperationException {
 		boolean active = true;
-		commandGAuxiliarValidation(numberFriends, splitbill);
-		commandGAuxiliar(totalAmount, splitbill);
+		active = commandGAuxiliarValidation(numberFriends, splitbill);
+		if (active) {
+			commandGAuxiliar(totalAmount, splitbill);
+		}
 		active = false;
 		return active;
 	}
-	
+
 	public boolean commandGAuxiliarValidation(int numberFriends, Map<String, Integer> splitbill) {
+
 		boolean active = true;
 		if (splitbill.size() < numberFriends) {
 			splitBillMessage("Oh no! One or more friends are missing.");
 			active = false;
-			return active;
 		} else if (splitbill.size() > numberFriends) {
 			splitBillMessage("Oh no! Too many friends.");
 			active = false;
-			return active;
 		}
 		return active;
 	}
-	
-	public boolean commandGAuxiliar(int totalAmount, Map<String, Integer> splitbill) throws SibsException, AccountException, OperationException {
-		
-		boolean active = true;
+
+	public void commandGAuxiliar(int totalAmount, Map<String, Integer> splitbill)
+			throws SibsException, AccountException, OperationException {
+
 		int sumAmounts = commandGAmounts(splitbill);
-		
+
 		if (sumAmounts == totalAmount) {
 			for (String number : splitbill.keySet()) {
 				if (!number.equals(getModel().getPhoneNumber())) {
@@ -192,8 +193,6 @@ public class MBWayController {
 						mbwayTransfer(number, splitbill.get(number));
 					} catch (MBWayException e) {
 						System.out.println(e.getType());
-						active=false;
-						return active;
 					}
 				}
 			}
@@ -201,14 +200,13 @@ public class MBWayController {
 		} else {
 			splitBillMessage("Something is wrong. Did you set the bill amount right?");
 		}
-		return active;
 	}
-	
+
 	public int commandGAmounts(Map<String, Integer> splitbill) {
 		int sumAmounts = 0;
 		for (int amount : splitbill.values()) {
 			sumAmounts += amount;
 		}
 		return sumAmounts;
-	}	
+	}
 }
