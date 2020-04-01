@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import pt.ulisboa.tecnico.learnjava.bank.domain.Person;
-import pt.ulisboa.tecnico.learnjava.bank.exceptions.ClientException;
 import pt.ulisboa.tecnico.learnjava.bank.exceptions.PersonException;
 
 public class personConstructorMethodTest {
@@ -17,7 +16,7 @@ public class personConstructorMethodTest {
 	
 
 	@Test
-	public void success() throws ClientException, PersonException {
+	public void success() throws PersonException {
 		Person person = new Person(FIRST_NAME, LAST_NAME, ADDRESS, PHONE_NUMBER);
 
 		assertTrue(person instanceof Person);
@@ -28,7 +27,7 @@ public class personConstructorMethodTest {
 	}
 
 	@Test(expected = PersonException.class)
-	public void no9DigitsPhoneNumber() throws ClientException, PersonException {
+	public void no9DigitsPhoneNumber() throws PersonException {
 		new Person(FIRST_NAME, LAST_NAME, ADDRESS, "A12345678");
 	}
 
